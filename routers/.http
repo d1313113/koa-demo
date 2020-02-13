@@ -26,3 +26,11 @@ POST {{url}}/user/login HTTP/1.1
   "username": "admin",
   "password": "123456"
 }
+
+### 禁用
+POST {{url}}/user/delete HTTP/1.1
+{{type}}
+
+{
+  "username": "admin1"
+}

@@ -13,7 +13,8 @@ router.post('/register', async ctx => {
   const { username, password } = ctx.request.body;
   const user = await User.create({
     username,
-    password
+    password,
+    disable: 0
   });
   ctx.body = {
     msg: 'ok'
@@ -43,6 +44,26 @@ router.post('/login', async ctx => {
     user: user.username,
     pwd: user.password
   };
+});
+
+// 禁用账号
+router.post('/delete', async ctx => {
+  const { username } = ctx.request.body;
+  if (!username) {
+    return ctx.respond.body = {
+      msg: '用户名错误',
+      status: 1
+    };
+  }
+  await User.findOneAndUpdate(
+    {
+      username
+    },
+    {
+      disable: 1
+    }
+  );
+  ctx.response.body = 'delete done';
 });
 
 module.exports = router;
