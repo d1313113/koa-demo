@@ -1,12 +1,24 @@
 {
   "name": "koa-demo",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "koa demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "koa",
+    "mongo"
+  ],
+  "author": "Cumelmell",
+  "license": "ISC",
+  "devDependencies": {
+    "@koa/router": "^8.0.8",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-ejs": "^4.3.0",
+    "koa-logger": "^3.2.1",
+    "mongoose": "^5.8.13",
+    "nodemon": "^2.0.2"
+  }
 }

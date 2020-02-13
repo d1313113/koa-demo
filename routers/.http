@@ -1,0 +1,28 @@
+@url = http://localhost:10086/api
+@type = Content-type: application/json
+
+### 首页
+GET {{url}} HTTP/1.1
+{{type}}
+
+### 注册用户
+POST {{url}}/user/register HTTP/1.1
+{{type}}
+
+{
+  "username": "admin1",
+  "password": "123456"
+}
+
+### 查询用户
+GET {{url}}/user/index HTTP/1.1
+{{type}}
+
+### 登录
+POST {{url}}/user/login HTTP/1.1
+{{type}}
+
+{
+  "username": "admin",
+  "password": "123456"
+}

@@ -1,0 +1,30 @@
+<div>
+  <input type="text" id="username">
+  <input type="password" id="password">
+  <button id="btn">login</button>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+let user = $('#username');
+let pwd = $('#password');
+let btn = $('#btn');
+btn.click(function() {
+  if (user.val() && pwd.val()) {
+    $.post({
+      url: 'http://localhost:10086/api/user/login',
+      data: {
+        username: user.val(),
+        password: pwd.val()
+      },
+      dataType: 'json',
+      success(res) {
+        console.log(res);
+      },
+      error(e) {
+        console.log(e);
+        alert(e.responseJSON.msg);
+      }
+    });
+  }
+});
+</script>
