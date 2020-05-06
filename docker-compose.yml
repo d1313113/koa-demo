@@ -1,0 +1,23 @@
+version: "3"
+services:
+  koa-db:
+    container_name: koa-db
+    image: mongo
+    volumes:
+    - ./db:/data/db
+    networks:
+      - webapp-network
+
+  koa-api:
+    container_name: koa-api
+    build: .
+    depends_on:
+      - koa-db
+    ports:
+    - "10086:10086"
+    networks:
+      - webapp-network
+
+networks:
+  webapp-network:
+    driver: bridge

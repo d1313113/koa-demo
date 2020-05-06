@@ -4,7 +4,9 @@
   "description": "koa demo",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon app.js"
+    "serve": "nodemon app.js",
+    "start": "node app.js",
+    "docker": "docker build -t d1313113/koa ."
   },
   "keywords": [
     "koa",
